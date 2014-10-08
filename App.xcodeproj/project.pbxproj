@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610304DE19DCE6F300278CF8 /* OAuth2CodeGrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610304DD19DCE6F300278CF8 /* OAuth2CodeGrant.swift */; };
+		610304E019DCE70C00278CF8 /* OAuth2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610304DF19DCE70C00278CF8 /* OAuth2.swift */; };
+		610304E219DCE73C00278CF8 /* OAuth2Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610304E119DCE73C00278CF8 /* OAuth2Request.swift */; };
+		610304E419DCE7B000278CF8 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610304E319DCE7B000278CF8 /* extensions.swift */; };
+		610304E619DCE95F00278CF8 /* OAuth2WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610304E519DCE95F00278CF8 /* OAuth2WebViewController.swift */; };
+		612A43AA19E4D2CC007F7E2A /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612A43A919E4D2CC007F7E2A /* HttpClient.swift */; };
+		612A43AC19E4E9A3007F7E2A /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612A43AB19E4E9A3007F7E2A /* Connector.swift */; };
 		61389C7819DBB8EF00B2FAF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61389C7719DBB8EF00B2FAF6 /* AppDelegate.swift */; };
 		61389C7A19DBB8EF00B2FAF6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61389C7919DBB8EF00B2FAF6 /* FirstViewController.swift */; };
 		61389C7C19DBB8EF00B2FAF6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61389C7B19DBB8EF00B2FAF6 /* SecondViewController.swift */; };
@@ -14,6 +21,7 @@
 		61389C8119DBB8EF00B2FAF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61389C8019DBB8EF00B2FAF6 /* Images.xcassets */; };
 		61389C8419DBB8EF00B2FAF6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61389C8219DBB8EF00B2FAF6 /* LaunchScreen.xib */; };
 		61389C9019DBB8EF00B2FAF6 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61389C8F19DBB8EF00B2FAF6 /* AppTests.swift */; };
+		61389C9A19DBB90700B2FAF6 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61389C9919DBB90700B2FAF6 /* SWXMLHash.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +35,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		610304DD19DCE6F300278CF8 /* OAuth2CodeGrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuth2CodeGrant.swift; path = "../../../Downloads/OAuth2-master/OAuth2/OAuth2CodeGrant.swift"; sourceTree = "<group>"; };
+		610304DF19DCE70C00278CF8 /* OAuth2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuth2.swift; path = "../../../Downloads/OAuth2-master/OAuth2/OAuth2.swift"; sourceTree = "<group>"; };
+		610304E119DCE73C00278CF8 /* OAuth2Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuth2Request.swift; path = "../../../Downloads/OAuth2-master/OAuth2/OAuth2Request.swift"; sourceTree = "<group>"; };
+		610304E319DCE7B000278CF8 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = extensions.swift; path = "../../../Downloads/OAuth2-master/OAuth2/extensions.swift"; sourceTree = "<group>"; };
+		610304E519DCE95F00278CF8 /* OAuth2WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OAuth2WebViewController.swift; path = "../../../Downloads/OAuth2-master/OAuth2/OAuth2WebViewController.swift"; sourceTree = "<group>"; };
+		612A43A919E4D2CC007F7E2A /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		612A43AB19E4E9A3007F7E2A /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		61389C7219DBB8EF00B2FAF6 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61389C7619DBB8EF00B2FAF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61389C7719DBB8EF00B2FAF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +53,7 @@
 		61389C8919DBB8EF00B2FAF6 /* AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61389C8E19DBB8EF00B2FAF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61389C8F19DBB8EF00B2FAF6 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		61389C9919DBB90700B2FAF6 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = ../SWXMLHash.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +77,8 @@
 		61389C6919DBB8EF00B2FAF6 = {
 			isa = PBXGroup;
 			children = (
+				612A43AB19E4E9A3007F7E2A /* Connector.swift */,
+				612A43A919E4D2CC007F7E2A /* HttpClient.swift */,
 				61389C7419DBB8EF00B2FAF6 /* App */,
 				61389C8C19DBB8EF00B2FAF6 /* AppTests */,
 				61389C7319DBB8EF00B2FAF6 /* Products */,
@@ -79,6 +97,11 @@
 		61389C7419DBB8EF00B2FAF6 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				610304E519DCE95F00278CF8 /* OAuth2WebViewController.swift */,
+				610304E319DCE7B000278CF8 /* extensions.swift */,
+				610304E119DCE73C00278CF8 /* OAuth2Request.swift */,
+				610304DF19DCE70C00278CF8 /* OAuth2.swift */,
+				610304DD19DCE6F300278CF8 /* OAuth2CodeGrant.swift */,
 				61389C7719DBB8EF00B2FAF6 /* AppDelegate.swift */,
 				61389C7919DBB8EF00B2FAF6 /* FirstViewController.swift */,
 				61389C7B19DBB8EF00B2FAF6 /* SecondViewController.swift */,
@@ -86,6 +109,7 @@
 				61389C8019DBB8EF00B2FAF6 /* Images.xcassets */,
 				61389C8219DBB8EF00B2FAF6 /* LaunchScreen.xib */,
 				61389C7519DBB8EF00B2FAF6 /* Supporting Files */,
+				61389C9919DBB90700B2FAF6 /* SWXMLHash.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -215,8 +239,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610304E019DCE70C00278CF8 /* OAuth2.swift in Sources */,
+				612A43AC19E4E9A3007F7E2A /* Connector.swift in Sources */,
 				61389C7C19DBB8EF00B2FAF6 /* SecondViewController.swift in Sources */,
+				610304E619DCE95F00278CF8 /* OAuth2WebViewController.swift in Sources */,
+				610304E219DCE73C00278CF8 /* OAuth2Request.swift in Sources */,
+				61389C9A19DBB90700B2FAF6 /* SWXMLHash.swift in Sources */,
 				61389C7819DBB8EF00B2FAF6 /* AppDelegate.swift in Sources */,
+				610304E419DCE7B000278CF8 /* extensions.swift in Sources */,
+				612A43AA19E4D2CC007F7E2A /* HttpClient.swift in Sources */,
+				610304DE19DCE6F300278CF8 /* OAuth2CodeGrant.swift in Sources */,
 				61389C7A19DBB8EF00B2FAF6 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +441,7 @@
 				61389C9519DBB8EF00B2FAF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61389C9619DBB8EF00B2FAF6 /* Build configuration list for PBXNativeTarget "AppTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +450,7 @@
 				61389C9819DBB8EF00B2FAF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

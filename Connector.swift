@@ -11,6 +11,7 @@ import Foundation
 public class Connector{
     
     var AccessToken:String!
+    var RefreshToken:String!
     var SessionID:String!
     var ClientID:String!
     var ClientSecret:String!
@@ -19,75 +20,92 @@ public class Connector{
     var AccessPoint:String!
     var Contract:String!
     private var AuthUrl:String!
-    var Queue1:dispatch_queue_t!
-    var Queue2:dispatch_queue_t!
-    var Lock:NSLock!
     
     init(authUrl:String,accessPoint:String,contract:String){
         AuthUrl = authUrl
         AccessPoint = accessPoint
         Contract = contract
-        Lock = NSLock()
     }
     
     private func getAuthUrl() -> String {
         return "\(AuthUrl)?grant_type=password&client_id=\(ClientID)&client_secret=\(ClientSecret)&username=\(UserName)&password=\(Password)"
     }
     
-    func SendRequest(service:String,body:String,function:(response:String) -> ()){
+    func SendRequest(service:String,body:String,function:(response:NSData) -> ()){
         
-        Lock.lock()
-            if self.SessionID == nil {
-                self.GetAccessTokenAndSessionID({
-                    var body = "<Envelope><Header><TargetContract>\(self.Contract)</TargetContract><TargetService>\(service)</TargetService><SecurityToken Type='Session'><SessionID>\(self.SessionID)</SessionID></SecurityToken></Header><Body>\(body)</Body></Envelope>"
-                    
-                    HttpClient.POST(self.AccessPoint, body: body, callback: { data in
-                        function(response: data)
-                    })
-                })
-            }
-            else{
-                var body = "<Envelope><Header><TargetContract>\(self.Contract)</TargetContract><TargetService>\(service)</TargetService><SecurityToken Type='Session'><SessionID>\(self.SessionID)</SessionID></SecurityToken></Header><Body>\(body)</Body></Envelope>"
-                
-                HttpClient.POST(self.AccessPoint, body: body, callback: { data in
-                    function(response: data)
-                    //self.Lock.unlock()
-                })
-            }
-        self.Lock.unlock()
+        if SessionID == nil {
+            GetSessionID()
+        }
         
+        var body = "<Envelope><Header><TargetContract>\(self.Contract)</TargetContract><TargetService>\(service)</TargetService><SecurityToken Type='Session'><SessionID>\(self.SessionID)</SessionID></SecurityToken></Header><Body>\(body)</Body></Envelope>"
+        
+        HttpClient.POST(self.AccessPoint, body: body, callback: { data in
+            function(response: data)
+        })
     }
     
-    private func GetAccessTokenAndSessionID(function:()->Void){
+    func IsValidated() -> Bool {
+        GetSessionID()
         
-            //Get AccessToken
-            HttpClient.Get(self.getAuthUrl(), callback: {(data) in
+        if self.SessionID == nil{
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    
+    private func GetSessionID() {
+        
+        var response:AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
+        var error: NSErrorPointer = nil
+        
+        var request = NSMutableURLRequest()
+        request.URL = NSURL.URLWithString(self.getAuthUrl())
+        // Sending Synchronous request using NSURLConnection
+        var tokenData = NSURLConnection.sendSynchronousRequest(request,returningResponse: response, error: error) as NSData!
+        if error != nil
+        {
+            // You can handle error response here
+            println("error!!")
+        }
+        else
+        {
+            //Converting data to String
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(tokenData, options: nil, error: nil) as NSDictionary
+            var wrapping_accessToken = jsonResult["access_token"] as String?
+            var wrapping_refreashToken = jsonResult["refresh_token"] as String?
+            
+            if let refreashToken = wrapping_refreashToken{
+                self.RefreshToken = refreashToken
+            }
+            
+            if let accessToken = wrapping_accessToken {
+                self.AccessToken = accessToken
+                println("accessToken: \(self.AccessToken)")
                 
-                var nsdata = data.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+                var body = "<Envelope><Header><TargetContract>\(self.Contract)</TargetContract><TargetService>DS.Base.Connect</TargetService><SecurityToken Type='PassportAccessToken'><AccessToken>\(self.AccessToken)</AccessToken></SecurityToken></Header><Body><RequestSessionID/></Body></Envelope>"
+            
+                request.URL = NSURL.URLWithString(self.AccessPoint)
+                request.HTTPMethod = "POST"
+                request.HTTPBody = body.dataUsingEncoding( NSUTF8StringEncoding, allowLossyConversion: true)
                 
-                var jsonDict = NSJSONSerialization.JSONObjectWithData(nsdata!, options: nil, error: nil) as NSDictionary
-                var wrapping_accessToken = jsonDict["access_token"] as String?
+                var sessionData = NSURLConnection.sendSynchronousRequest(request, returningResponse: response, error: error) as NSData!
                 
-                if let accessToken = wrapping_accessToken{
-                    println("accessToken: \(accessToken)")
-                    
-                    var body = "<Envelope><Header><TargetContract>\(self.Contract)</TargetContract><TargetService>DS.Base.Connect</TargetService><SecurityToken Type='PassportAccessToken'><AccessToken>\(accessToken)</AccessToken></SecurityToken></Header><Body><RequestSessionID/></Body></Envelope>"
-                    
-                    //Get SessionID
-                    HttpClient.POST(self.AccessPoint, body: body, callback: { data in
-                        
-                        var xml = SWXMLHash.parse(data)
-                        var wrapping_sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text
-                        
-                        if let sessionid = wrapping_sessionid{
-                            self.SessionID = sessionid
-                            println("sessionid: \(sessionid)")
-                            
-                            //After got SessionID
-                            function()
-                        }
-                    })
+                if error != nil{
+                    // You can handle error response here
+                    println("error!!")
                 }
-            })
+                else{
+                    var xml = SWXMLHash.parse(sessionData)
+                    var wrapping_sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text
+                    
+                    if let sessionid = wrapping_sessionid{
+                        self.SessionID = sessionid
+                        println("sessionid: \(sessionid)")
+                    }
+                }
+            }
+        }
     }
 }

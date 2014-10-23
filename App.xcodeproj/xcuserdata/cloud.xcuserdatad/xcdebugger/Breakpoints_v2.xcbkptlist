@@ -9,13 +9,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "App/FirstViewController.swift"
-            timestampString = "434454261.184618"
+            filePath = "App/SemesterScoreViewController.swift"
+            timestampString = "435667191.894415"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "btn_click(_:)"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "SemesterScoreViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "App/DisciplineViewController.swift"
+            timestampString = "435666773.78145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "tabBar(_:didSelectItem:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Connector.swift"
-            timestampString = "434455301.419327"
+            filePath = "App/SemesterScoreViewController.swift"
+            timestampString = "435667231.907638"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "SendRequest(_:body:function:)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "tabBar(_:didSelectItem:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,44 +57,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Connector.swift"
-            timestampString = "434455301.419327"
+            filePath = "App/SemesterScoreViewController.swift"
+            timestampString = "435667305.295973"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "SendRequest(_:body:function:)"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "tabBar(_:didSelectItem:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "App.Connector.(SendRequest (App.Connector) -&gt; (Swift.String, body : Swift.String, function : (response : Swift.String) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "App"
-                  urlString = "file:///Users/cloud/Desktop/App/Connector.swift"
-                  timestampString = "434454261.502836"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "117">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "App.Connector.(SendRequest (App.Connector) -&gt; (Swift.String, body : Swift.String, function : (response : Swift.String) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "App"
-                  urlString = "file:///Users/cloud/Desktop/App/Connector.swift"
-                  timestampString = "434454261.503493"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "3336">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -87,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Connector.swift"
-            timestampString = "434455372.658963"
+            filePath = "App/SemesterScoreViewController.swift"
+            timestampString = "435667660.23688"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "SendRequest(_:body:function:)"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "tabBar(_:didSelectItem:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

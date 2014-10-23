@@ -10,13 +10,13 @@ import Foundation
 
 public class HttpClient{
     
-    class func Get(url:String,callback:(data:String) -> ()){
+    class func Get(url:String,callback:(data:NSData) -> ()){
         
         var req = NSURLRequest(URL: NSURL(string: url))
         var conn = NSURLConnection(request: req, delegate: HttpRequest(callback), startImmediately: true)
     }
     
-    class func POST(url:String,body:String,callback:(data:String) -> ()){
+    class func POST(url:String,body:String,callback:(data:NSData) -> ()){
         
         var req = NSMutableURLRequest()
         req.URL = NSURL(string:url)
@@ -27,16 +27,15 @@ public class HttpClient{
     
     class HttpRequest:NSObject{
         
-        private var callback:(data:String) -> ()
+        private var callback:(data:NSData) -> ()
         
-        init(callback:(data:String) -> ()){
+        init(callback:(data:NSData) -> ()){
             self.callback = callback
         }
         
         func connection(connection: NSURLConnection, didReceiveData data: NSData){
-            var string = NSString(data: data, encoding: NSUTF8StringEncoding)
-            
-            self.callback(data:string)
+            //var resopnse = NSString(data: data, encoding: NSUTF8StringEncoding)
+            self.callback(data:data)
         }
     }
 }
